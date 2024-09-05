@@ -1,6 +1,5 @@
+import { CORE_CONCEPTS } from "./assets/data";
 import reactImg from "./assets/react-core-concepts.png";
-import componentImg from "./assets/components.png";
-import jsxImg from "./assets/jsx-ui.png";
 
 const reactDesc = ["Fundamental", "Crucial", "Core"];
 
@@ -22,12 +21,12 @@ function Header() {
   )
 }
 
-function CoreConcept(props) {
+function CoreConcept({ title, description, image }) {
   return (
     <li>
-      <img src={props.image} alt={props.title} />
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
+      <img src={image} alt={title} />
+      <h3>{title}</h3>
+      <p>{description}</p>
     </li>
   )
 }
@@ -39,17 +38,13 @@ function App() {
         <section id="core-concepts">
           <ul>
             <CoreConcept
-              title="Components"
-              description="Reusable UI elements"
-              image={componentImg}
+              title={CORE_CONCEPTS[0].title}
+              description={CORE_CONCEPTS[0].description}
+              image={CORE_CONCEPTS[0].image}
             />
-            <CoreConcept
-              title="JSX"
-              description="React's declarative programming elements"
-              image={jsxImg}
-            />
-            <CoreConcept />
-            <CoreConcept />
+            <CoreConcept {...CORE_CONCEPTS[1]} />
+            <CoreConcept {...CORE_CONCEPTS[2]} />
+            <CoreConcept {...CORE_CONCEPTS[3]} />
           </ul>
         </section>
         <h2>Time to get started!</h2>
