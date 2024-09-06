@@ -5,13 +5,25 @@ import Header from "./components/Header";
 import TabButton from "./components/TabButton";
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState("components");
+  const [selectedTopic, setSelectedTopic] = useState();
   function handleSelect(selectedBtn) {
     setSelectedTopic(selectedBtn)
     // console.log(selectedTopic);
   }
   console.log("App Component Executing...")
 
+  let tabContent = <p>Please select a topic.</p>
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].description}</p>
+        <pre>
+          <code>{EXAMPLES[selectedTopic].code}</code>
+        </pre>
+      </div>
+    )
+  }
   return (
     <div>
       <Header />
@@ -36,13 +48,7 @@ function App() {
             <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
             <TabButton onSelect={() => handleSelect("state")}>States</TabButton>
           </menu>
-          <div id="tab-content">
-            <h3>{ EXAMPLES[selectedTopic].title }</h3>
-            <p>{EXAMPLES[selectedTopic].description}</p>
-            <pre>
-              <code>{EXAMPLES[selectedTopic].code}</code>
-            </pre>
-          </div>
+          {tabContent}
         </section>
       </main>
     </div>
