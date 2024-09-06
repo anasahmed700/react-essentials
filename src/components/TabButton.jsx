@@ -1,8 +1,8 @@
-const TabButton = ({ children, onSelect }) => {
+const TabButton = ({ children, onSelect, isSelected }) => {
     console.log("Tab Component Executing...")
     return (
         <li>
-            <button onClick={onSelect}>{children}</button>
+            <button className={isSelected ? 'active' : undefined} onClick={onSelect}>{children}</button>
         </li>
     )
 }
