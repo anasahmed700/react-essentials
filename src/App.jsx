@@ -8,7 +8,7 @@ function App() {
   const [selectedTopic, setSelectedTopic] = useState("components");
   function handleSelect(selectedBtn) {
     setSelectedTopic(selectedBtn)
-    console.log(selectedTopic);
+    // console.log(selectedTopic);
   }
   console.log("App Component Executing...")
 

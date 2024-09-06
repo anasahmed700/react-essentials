@@ -73,8 +73,8 @@ export const EXAMPLES = {
 
                 return (
                     <div>
-                    <button onClick={handleClick}>Show Details</button>
-                    {isVisible && <p>Amazing details!</p>}
+                        <button onClick={handleClick}>Show Details</button>
+                        {isVisible && <p>Amazing details!</p>}
                     </div>
                 );
             }`,
