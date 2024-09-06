@@ -1,12 +1,16 @@
-import { CORE_CONCEPTS } from "./assets/data";
+import { useState } from "react";
+import { CORE_CONCEPTS, EXAMPLES } from "./assets/data";
 import CoreConcept from "./components/CoreConcept";
 import Header from "./components/Header";
 import TabButton from "./components/TabButton";
 
 function App() {
+  const [selectedTopic, setSelectedTopic] = useState("components");
   function handleSelect(selectedBtn) {
-    console.log(selectedBtn);
+    setSelectedTopic(selectedBtn)
+    // console.log(selectedTopic);
   }
+  console.log("App Component Executing...")
 
   return (
     <div>
@@ -30,9 +34,15 @@ function App() {
             <TabButton onSelect={() => handleSelect("components")}>Components</TabButton>
             <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
             <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
-            <TabButton onSelect={() => handleSelect("states")}>States</TabButton>
+            <TabButton onSelect={() => handleSelect("state")}>States</TabButton>
           </menu>
-          Dynamic Content
+          <div id="tab-content">
+            <h3>{ EXAMPLES[selectedTopic].title }</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+              <code>{EXAMPLES[selectedTopic].code}</code>
+            </pre>
+          </div>
         </section>
       </main>
     </div>
