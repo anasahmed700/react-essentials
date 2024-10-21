@@ -1,4 +1,3 @@
-import React from 'react'
 import { CORE_CONCEPTS } from '../assets/data'
 import CoreConcept from './CoreConcept'
 
