@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Tabs = ({ buttons, children, ButtonContainer }) => {
+const Tabs = ({ buttons, children, ButtonContainer = "menu" }) => {
     // const ButtonContainer = buttonContainer;
     return (
         <>
